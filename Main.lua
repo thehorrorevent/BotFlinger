@@ -54,6 +54,12 @@ if (not game:IsLoaded()) then
 	  for i, v in next, getconnections(game:GetService("Players").LocalPlayer.Idled) do -- exploit function
 		  v:Disable()
 	  end
+
+      for _,v in pairs(workspace:GetDescendants()) do
+          if v:IsA('Seat') then
+              v:Destroy()
+          end
+      end
 	  
 	  local function Chat(msg)
 		  game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, "All")
